@@ -1,0 +1,43 @@
+radio_dir: Z:\20240416-GuanBo\T2
+task_type: 2.5D
+task_column: [label]
+auto__label_file:
+  - split_info\label-RND-0.csv
+  - split_info\label-RND-1.csv
+  - split_info\label-RND-2.csv
+  - split_info\label-RND-3.csv
+  - split_info\label-RND-4.csv 
+  - split_info\label-RND-5.csv
+  - split_info\label-RND-6.csv
+  - split_info\label-RND-7.csv
+  - split_info\label-RND-8.csv
+  - split_info\label-RND-9.csv 
+# label_file: split_info\label-RND-0.csv 
+label_file: group.csv
+ml_models:
+#   - LR
+  - SVM
+  - RandomForest
+  - ExtraTrees
+  - LightGBM
+#   - MLP
+  - XGBoost
+label_mapping: 
+  0: non-Invasion
+  1: Invasion
+subsets: [train, test]
+use_youden: False
+summary_model: [Radiomics, MIL, DLRad, Combined]
+modals: [T2]
+sel_model:
+  Clinic: ExtraTrees
+  2DL: resnet50
+  3DL: ShuffleNet
+clinic_file: 
+metric_spec: AUC
+metric_spec_ids: 
+metric_spec_agg: mean
+save_dir: viz
+font.size: 12
+clinic_file: Z:\20240416-GuanBo\T2\Clinical.csv
+DISABLE_VIDEO: True
